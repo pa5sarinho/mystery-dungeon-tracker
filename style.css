@@ -1,0 +1,80 @@
+:root {
+	--blue: #587ffc;
+	--pink: #ff8692;
+	--white: #fdfcdc;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	color: var(--white);
+	font-family: arial;
+	background-color: #1e1e5d;
+	/*background: linear-gradient(to bottom, #fed9b7, #00afb9);*/
+}
+
+#button-wrapper {
+	margin-top: 100px;
+	text-align: center;
+}
+
+#rescue-team-button {
+	background-color: var(--pink);
+	color: var(--white);
+	padding-left: 10px;
+	border-radius: 30px 0 0 30px;
+}
+
+#explorers-button {
+	background-color: var(--blue);
+	color: var(--white);
+	padding-right: 10px;
+	border-radius: 0 30px 30px 0;
+}
+
+#explorers-button:active {
+	color: var(--blue);
+	background-color: var(--white);
+}
+
+#rescue-team-button:active {
+	color: var(--pink);
+	background-color: var(--white);
+}
+
+button {
+	border: none;
+	padding: 5px;
+	font-size: 16 px;
+	font-weight: bold;
+}
+
+#poke-wrapper {
+	margin-top: 15px;
+	text-align: center;
+	height: auto;
+	margin-left: 10%;
+	margin-right: 10%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	/*grid-gap: 5px;*/
+}
+
+.portraits {
+	display: flex;
+	padding: 10px;
+	justify-content: center;
+	align-items: center;
+}
+
+.portraits img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+p {
+	padding: 150px;
+}
+
