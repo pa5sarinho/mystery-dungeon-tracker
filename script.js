@@ -23,6 +23,10 @@ for (let i = 1; i <= 492; i++) {
 }
 // oops, shedinja's picture is not shedinja
 pictures[291] = "https://archives.bulbagarden.net/media/upload/3/38/MDP_E_292.png"
+// bellsprout
+// feraligatr
+// swampert
+// gulpin
 
 const pokeWrapper = document.getElementById('poke-wrapper');
 let mode = 0; // 0: rescue team   1: explorers of sky
@@ -36,6 +40,49 @@ function showImgs(indexLimit){
 	{
 		const pic = document.createElement('img');
 		pic.src = pictures[i];
+		pic.id = (i+1).toString();
+		
+		// floating box
+		pic.addEventListener("mouseover", (event) => {
+			const infoBox = document.createElement('div');
+			infoBox.className = "infobox";
+			
+			const name = document.createElement('h3');
+			name.textContent = pokemon[pic.id].name;
+			infoBox.appendChild(name);
+
+			const location = document.createElement('p');
+			const rate = document.createElement('p');
+			
+			if (mode == 0) { // if rescue team
+				location.textContent = "Location: "+pokemon[pic.id].rt_location;
+				rate.textContent = "Recruit rate: "+pokemon[pic.id].rt_rate;
+				
+				const friendArea = document.createElement('p');
+				friendArea.textContent = "Friend Area: "+pokemon[pic.id].friend_area;
+				infoBox.appendChild(friendArea);
+			}
+			else {
+				rate.textContent = "Recruit Rate: "+pokemon[pic.id].sky_rate;
+				location.textContent = "Location: "+pokemon[pic.id].sky_location;
+			}
+			
+			infoBox.appendChild(location);
+			infoBox.appendChild(rate);
+			
+			let posX = event.clientX + 10;
+			let posY = event.clientY + 10;
+			infoBox.style.left = posX + "px";
+			infoBox.style.top = posY + "px";
+
+			document.body.appendChild(infoBox);
+		})
+		pic.addEventListener("mouseout", (event) => {
+			const infoBox = document.querySelector(".infobox");
+			if (infoBox) {
+				infoBox.remove();
+			}
+		})
 		photoDiv.appendChild(pic);
 	}
 	mode = (indexLimit == 492) ? 1 : 0;
@@ -48,3 +95,5 @@ document.getElementById('explorers-button').addEventListener('click', function()
 document.getElementById('rescue-team-button').addEventListener('click', function(){
 	showImgs(386);
 });
+
+const images = document.querySelectorAll("#poke-wrapper img");

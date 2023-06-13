@@ -1,7 +1,9 @@
 :root {
-	--blue: #587ffc;
+	--blue: #45ada8;
 	--pink: #ff8692;
-	--white: #fdfcdc;
+	--white: #f9f8f3;
+	--lightgray: #e6f0f0;
+	--gray: #4a686a;
 }
 
 html {
@@ -11,7 +13,7 @@ html {
 body {
 	color: var(--white);
 	font-family: arial;
-	background-color: #1e1e5d;
+	background-color: var(--gray);
 	/*background: linear-gradient(to bottom, #fed9b7, #00afb9);*/
 }
 
@@ -74,7 +76,19 @@ button {
     max-height: 100%;
 }
 
-p {
+.infobox {
+	position: absolute;
+	z-index: 10000;
+	background-color: var(--lightgray);
+	color: var(--gray);
+	padding: 10px;
+}
+
+.infobox h3 {
+	margin-top: 3px;
+}
+
+#poke-wrapper p {
 	padding: 150px;
 }
 
