@@ -70,10 +70,15 @@ function showImgs(indexLimit){
 			infoBox.appendChild(location);
 			infoBox.appendChild(rate);
 			
-			let posX = event.clientX + 10;
-			let posY = event.clientY + 10;
-			infoBox.style.left = posX + "px";
-			infoBox.style.top = posY + "px";
+			// making it so it works properly even if I scroll down the page
+			let imgRect = pic.getBoundingClientRect();
+		    let scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+		    let scrollY = window.pageYOffset || document.documentElement.scrollTop;
+		    let posX = imgRect.left + scrollX + imgRect.width + 10;
+		    let posY = imgRect.top + scrollY + 10;
+
+		    infoBox.style.left = posX + "px";
+		    infoBox.style.top = posY + "px";
 
 			document.body.appendChild(infoBox);
 		})

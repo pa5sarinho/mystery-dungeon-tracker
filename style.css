@@ -1,9 +1,10 @@
 :root {
-	--blue: #45ada8;
-	--pink: #ff8692;
+	--blue: #3fbbc1;
+	--darkblue: #36506b;
+	--pink: #fc5185;
 	--white: #f9f8f3;
-	--lightgray: #e6f0f0;
-	--gray: #4a686a;
+	--lightgray: #f0f0f0;
+	--gray: #4e413b;
 }
 
 html {
@@ -13,8 +14,8 @@ html {
 body {
 	color: var(--white);
 	font-family: arial;
-	background-color: var(--gray);
-	/*background: linear-gradient(to bottom, #fed9b7, #00afb9);*/
+	background-color: var(--darkblue);
+	margin-bottom: 100px;
 }
 
 #button-wrapper {
@@ -82,10 +83,17 @@ button {
 	background-color: var(--lightgray);
 	color: var(--gray);
 	padding: 10px;
+	max-width: 400px;
 }
 
 .infobox h3 {
 	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+.infobox p {
+	margin-bottom: 2px;
+	margin-top: 4px;
 }
 
 #poke-wrapper p {
