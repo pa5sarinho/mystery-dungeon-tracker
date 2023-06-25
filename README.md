@@ -5,11 +5,10 @@ The pokemon dataset I used for this is available here: https://github.com/pa5sar
 ### What has been done
 + All the pokemon portraits are displayed for Red/Blue Rescue Team and Explorers of Sky
 + A mouseover event to show the pokemon locationsand recruit rates (and friend areas for rescue team)
++ onclick event to mark as recruited
 
 ### Still needs to be done
-+ onclick event to mark as recruited
-+ Filtering for the Pokemon that hasn't been recruited yet
 + Recruitment tracking in a database
-+ Login feature
++ Login feature?
 
 ![screenshot](screenshot.png)
