@@ -61,12 +61,21 @@ fetch('http://localhost:8000/PMD_data.json')
     
     			document.body.appendChild(infoBox);
     		})
+    		
+    		// removes the floating div
     		pic.addEventListener("mouseout", (event) => {
     			const infoBox = document.querySelector(".infobox");
     			if (infoBox) {
     				infoBox.remove();
     			}
     		})
+    		
+			// marks pokemon as recruited
+			pic.addEventListener("click", (event) => {
+				pic.style.opacity = 1;
+			});
+
+    		pic.style.opacity = 0.4;
     		photoDiv.appendChild(pic);
     	}
     	mode = (indexLimit == SKY) ? 1 : 0;
