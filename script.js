@@ -1,6 +1,21 @@
 const SKY = 492;
 const RT = 386;
 
+function saveAsCaught(game, number) {
+	let key = game + "_" + number; // (e.g. "0_112")
+	localStorage.setItem(key, true); // saves pokemon as caught in local storage
+}
+
+function cancelCaught(game, number) {
+	let key = game + "_" + number;
+	localStorage.removeItem(key);
+}
+
+function isCaught(game, number) {
+	let key = game + "_" + number;
+	return localStorage.getItem(key) !== null;
+}
+
 // loading the pokemon data json
 fetch('http://localhost:8000/PMD_data.json')
   .then(response => response.json())
@@ -15,6 +30,8 @@ fetch('http://localhost:8000/PMD_data.json')
     	while (pokeWrapper.firstChild) pokeWrapper.firstChild.remove();
     	const photoDiv = document.createElement('div');
     	photoDiv.classList.add('portrait');
+		mode = (indexLimit == SKY) ? 1 : 0;
+
     	for (let i = 0; i < indexLimit; i++)
     	{
     		const pic = document.createElement('img');
@@ -62,7 +79,7 @@ fetch('http://localhost:8000/PMD_data.json')
     			document.body.appendChild(infoBox);
     		})
     		
-    		// removes the floating div
+    		// removes the floating box
     		pic.addEventListener("mouseout", (event) => {
     			const infoBox = document.querySelector(".infobox");
     			if (infoBox) {
@@ -72,13 +89,20 @@ fetch('http://localhost:8000/PMD_data.json')
     		
 			// marks pokemon as recruited
 			pic.addEventListener("click", (event) => {
-				pic.style.opacity = 1;
+				if (isCaught(mode, pic.id)) {
+					cancelCaught(mode, pic.id);
+					pic.style.opacity = 0.4;
+				}
+				else {
+					saveAsCaught(mode, pic.id);
+					pic.style.opacity = 1;
+				}
 			});
 
-    		pic.style.opacity = 0.4;
+			pic.style.opacity = isCaught(mode, pic.id) ? 1 : 0.4;
     		photoDiv.appendChild(pic);
     	}
-    	mode = (indexLimit == SKY) ? 1 : 0;
+
     	pokeWrapper.appendChild(photoDiv);
     }
     
