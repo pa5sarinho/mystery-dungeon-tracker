@@ -1,14 +1,6 @@
 # Mystery Dungeon Tracker
-A WebApp to keep track of your Pokemon Mystery Dungeon (1 and 2) recruiting progress.
-The pokemon dataset I used for this is available here: https://github.com/pa5sarinho/pmd_dataset
+An app to keep track of your Pokemon Mystery Dungeon (1 and 2) recruiting progress. This is the local version if you wish to run it directly on your machine. **The web version is available [here](https://pa5sarinho.github.io/).**
 
-### What has been done
-+ All the pokemon portraits are displayed for Red/Blue Rescue Team and Explorers of Sky
-+ A mouseover event to show the pokemon locationsand recruit rates (and friend areas for rescue team)
-+ onclick event to mark as recruited
-
-### Still needs to be done
-+ Recruitment tracking in a database
-+ Login feature?
+The pokemon dataset I gathered and used for this is available in my other repository: https://github.com/pa5sarinho/pmd_dataset
 
 ![screenshot](screenshot.png)
